@@ -1,6 +1,227 @@
-type Locale = 'zh-TW' | 'en'
+type Locale = 'zh-CN' | 'zh-TW' | 'en'
 
 const translations = {
+  'zh-CN': {
+    // Transaction types
+    'label.type.expense': '支出',
+    'label.type.income': '收入',
+    'label.type.transfer': '转账',
+
+    // Wallet types
+    'label.walletType.cash': '现金',
+    'label.walletType.bank': '银行账户',
+    'label.walletType.creditCard': '信用卡',
+
+    // Default expense categories
+    'label.cat.food': '饮食',
+    'label.cat.clothing': '服饰',
+    'label.cat.housing': '住房',
+    'label.cat.transport': '交通',
+    'label.cat.education': '教育',
+    'label.cat.entertainment': '娱乐',
+    'label.cat.shopping': '购物',
+    'label.cat.medical': '医疗',
+    'label.cat.cash_expense': '现金消费',
+    'label.cat.insurance': '保险',
+    'label.cat.fees': '费用/手续费',
+    'label.cat.tax': '税金',
+
+    // Default income categories
+    'label.cat.salary': '薪资',
+    'label.cat.interest': '利息所得',
+    'label.cat.side_income': '兼职',
+    'label.cat.bonus': '奖金',
+    'label.cat.lottery': '彩票中奖',
+    'label.cat.rent': '租金',
+    'label.cat.cashback': '优惠回馈',
+    'label.cat.dividend': '股利',
+    'label.cat.investment_profit': '投资获利',
+    'label.cat.insurance_income': '保险理赔',
+    'label.cat.pension': '退休金',
+
+    // Default transfer categories
+    'label.cat.account_transfer': '账户互转',
+    'label.cat.credit_card_payment': '信用卡缴费',
+    'label.cat.investment_trade': '投资买卖',
+
+    // Fallback
+    'label.cat.uncategorized': '未分类',
+    'label.cat.other': '其他',
+
+    // UI labels
+    'ui.addTransaction': '新增交易',
+    'ui.detail': '明细',
+    'ui.confirm': '确认',
+    'ui.cancel': '取消',
+    'ui.delete': '删除',
+    'ui.edit': '编辑',
+    'ui.archive': '封存',
+    'ui.save': '保存',
+    'ui.search': '搜索',
+    'ui.noMatches': '没有符合条件的选项',
+
+    // Dashboard
+    'dashboard.title': '账本总览',
+    'dash.income': '收入',
+    'dash.expense': '支出',
+    'dash.balance': '结余',
+    'dash.netAsset': '净资产',
+    'dash.walletBalances': '账户余额',
+    'dash.assetAllocation': '资金占比',
+    'dash.expenseByCategory': '支出分类',
+    'dash.incomeByCategory': '收入分类',
+    'dash.noData': '本月无资料',
+
+    // Detail view
+    'detail.title': '收支明细',
+    'detail.filterAll': '全部',
+    'detail.filterExpense': '支出',
+    'detail.filterIncome': '收入',
+    'detail.filterTransfer': '转账',
+    'detail.subtotalIncome': '收入小计',
+    'detail.subtotalExpense': '支出小计',
+    'detail.noTransactions': '无符合条件的交易',
+    'detail.searchPlaceholder': '搜索备注/标签...',
+    'detail.filterCategory': '分类',
+    'detail.filterButton': '筛选',
+    'detail.filterTitle': '筛选',
+    'detail.filterType': '类型',
+    'detail.filterAccount': '账户',
+    'detail.filterAllAccounts': '全部账户',
+    'detail.filterDateRange': '日期范围',
+    'detail.filterClearAll': '清除全部',
+    'detail.filterDone': '完成',
+
+    // Trend view
+    'trend.3m': '3 个月',
+    'trend.6m': '6 个月',
+    'trend.12m': '12 个月',
+    'trend.monthlyIncomeExpense': '每月收支',
+
+    // Date formatting
+    'date.yearMonthNumeric': '{year} 年 {month} 月',
+    'date.yearMonthShort': '{year} 年 {month} 月',
+    'date.monthLabel': '{month}月',
+
+    // Transaction modal
+    'modal.addTitle': '新增交易',
+    'modal.editTitle': '编辑交易',
+    'modal.date': '日期',
+    'modal.wallet': '账户',
+    'modal.fromWallet': '转出账户',
+    'modal.toWallet': '转入账户',
+    'modal.category': '分类',
+    'modal.note': '备注',
+    'modal.tags': '标签',
+    'modal.tagsPlaceholder': '输入标签后按 Enter',
+    'modal.done': '完成',
+    'tagPicker.title': '选择标签',
+    'tagPicker.search': '搜索或输入新标签',
+    'tagPicker.addTag': '+ 新增标签',
+    'tagPicker.addNamed': '+ 新增「{name}」',
+    'tagPicker.noResults': '没有包含「{searchTerm}」的标签',
+    'tagPicker.tagLimit': '已达标签上限',
+    'tagPicker.tooLong': '长度超过上限（中文 5 字 / 英数 10 字）无法新增',
+    'tagPicker.rowPlaceholder': '选择标签',
+    'modal.amount': '金额',
+    'modal.isRefund': '这是退款',
+    'modal.isRefund.hint': '金额会记为负支出（用于退货、退款场景）',
+
+    // Validation errors
+    'err.amountRequired': '请输入金额',
+    'err.amountPositive': '金额必须大于 0',
+    'err.amountInteger': '当前设置不允许小数，请输入整数金额',
+    'err.walletRequired': '请选择账户',
+    'err.fromWalletRequired': '请选择转出账户',
+    'err.toWalletRequired': '请选择转入账户',
+    'err.sameWallet': '来源与目标钱包不能相同',
+    'err.walletNameEmpty': '钱包名称不能为空',
+    'err.walletNameDuplicate': '钱包名称已存在',
+    'calculator.err.pendingExpression': '请先按 = 完成计算',
+    'calculator.err.negativeResult': '计算结果不可为负数',
+    'calculator.err.divideByZero': '不可除以 0',
+    'calculator.done': '完成',
+
+    // Settings
+    'settings.general': '一般设置',
+    'settings.folderName': '文件夹名称',
+    'settings.folderNameDesc': '存放记账文件的文件夹（相对于 Vault 根目录）',
+    'settings.defaultWallet': '默认账户',
+    'settings.defaultWalletDesc': '新增交易时默认选取的账户',
+    'settings.decimalPlaces': '金额小数位数',
+    'settings.decimalPlacesDesc': '记账金额允许的小数位数',
+    'settings.dp0': '整数（0 位）',
+    'settings.dp2': '2 位小数',
+    'settings.activeWallets': '使用中账户',
+    'settings.archivedWallets': '已封存账户',
+    'settings.addWallet': '新增账户',
+    'settings.walletName': '名称',
+    'settings.walletType': '类型',
+    'settings.initialBalance': '初始余额',
+    'settings.includeInNetAssetOn': '当前：纳入净资产',
+    'settings.includeInNetAssetOff': '当前：不纳入净资产',
+    'settings.customCategories': '自定义分类',
+    'settings.expenseCategories': '支出',
+    'settings.incomeCategories': '收入',
+    'settings.transferCategories': '转账',
+    'settings.addCategory': '新增分类',
+    'settings.categoryPlaceholder': '输入分类名称',
+
+    // Validation
+    'validation.modalTitle': '资料验算报告',
+    'validation.fixAll': '全部修复',
+    'validation.fix': '修复',
+    'validation.remapTo': '改指向',
+    'validation.frontmatterSection': 'Frontmatter 缓存不一致',
+    'validation.frontmatterDesc': '{month}：收入应为 {actualIncome}（现为 {storedIncome}），支出应为 {actualExpense}（现为 {storedExpense}）',
+    'validation.orphanSection': '孤儿账户引用',
+    'validation.orphanDesc': '账户「{wallet}」不存在于设置中，共 {count} 笔交易引用（{months}）',
+    'validation.repaired': '已修复 {count} 个问题',
+    'settings.autoValidate': '启动时自动验算',
+    'settings.autoValidateDesc': '开启 Obsidian 时自动扫描所有资料，检测 frontmatter 缓存不一致与孤儿账户',
+    'notice.validationClean': '验算完成，资料无误。',
+
+    // Confirm dialogs
+    'confirm.deleteTransaction': '确定要删除这笔交易？此操作无法复原。',
+    'confirm.archiveWallet': '确定要封存此钱包？封存后无法复原，该钱包将不再出现在交易入口中。',
+    'confirm.deleteWallet': '确定要删除此钱包？',
+    'confirm.unarchiveWallet': '确定要取消封存此钱包？',
+
+    // Onboarding
+    'onboard.welcome': '欢迎使用 PennyWallet！建议先新增您的银行账户与信用卡钱包。',
+
+    // Settings — extra
+    'settings.noActiveWallets': '无使用中钱包',
+    'settings.creditDebtPrefix': '欠 ',
+    'settings.creditBalanceHint': '信用卡填入目前未还金额（正数）。例：欠 3,000 → 填 3000',
+    'settings.cashBankBalanceHint': '填入目前实际余额（需 ≥ 0）',
+
+    // Notices
+    'notice.walletAdded': '✓ 账户「{name}」已新增',
+    'notice.walletReordered': '✓ 账户顺序已保存',
+    'notice.transactionDeleted': '✓ 交易已删除',
+    'notice.transactionAdded': '✓ 交易已新增',
+    'notice.transactionUpdated': '✓ 交易已更新',
+    'notice.loadFailed': 'PennyWallet 加载失败，请检查插件设置。',
+
+    // Errors — extra
+    'err.cashBankNegativeBalance': '现金与银行账户余额不能为负数',
+    'err.creditNegativeBalance': '信用卡未还金额不能为负数，请填正数欠款金额',
+    'err.creditNegativeBalanceShort': '信用卡未还金额请填正数',
+    'err.categoryExists': '分类已存在',
+    'err.categoryExistsInOtherList': '此分类名称已存在于另一个清单中',
+    'err.invalidDate': '日期格式无效',
+    'err.fromMustNotBeCreditCard': '转出账户不能是信用卡',
+    'err.toMustBeCreditCard': '转入账户必须是信用卡',
+
+    'ui.unarchive': '取消封存',
+
+    // Asset view
+    'asset.title': '资产',
+    'ui.asset': '资产',
+    'ui.overview': '总览',
+    'asset.netAssetTrend': '净资产趋势',
+  },
   'zh-TW': {
     // Transaction types
     'label.type.expense': '支出',
@@ -431,6 +652,7 @@ type TranslationKey = keyof typeof translations['en']
 let currentLocale: Locale = 'zh-TW'
 
 const LOCALE_TAGS: Record<Locale, string> = {
+  'zh-CN': 'zh-CN',
   'zh-TW': 'zh-TW',
   en: 'en-US',
 }
@@ -439,6 +661,7 @@ export function detectLocale(): Locale {
   try {
     // Obsidian exposes moment with locale set
     const lang = (window as Window & { moment?: { locale?: () => string } }).moment?.locale?.() ?? ''
+    if (lang.startsWith('zh-Hans') || lang === 'zh' || lang.startsWith('zh-CN')) return 'zh-CN'
     if (lang.startsWith('zh')) return 'zh-TW'
   } catch {
     // ignore

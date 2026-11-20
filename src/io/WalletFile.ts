@@ -794,6 +794,7 @@ export class WalletFile {
   private getLocaleCashName(): string {
     try {
       const lang = (window as Window & { moment?: { locale?: () => string } }).moment?.locale?.() ?? ''
+      if (lang.startsWith('zh-Hans') || lang === 'zh' || lang.startsWith('zh-CN')) return '默认钱包'
       if (lang.startsWith('zh')) return '預設錢包'
     } catch { /* ignore */ }
     return 'Default Wallet'
